@@ -15,21 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('t', function() {
-    dd(env('APP_URL'));
-});
-
 Auth::routes();
 
-Route::get('tests', 'MessageController@tests');
-
-Route::get('/home', 'HomeController@index');
-
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('message/{id}', 'MessageController@chatHistory')->name('message.read');
 
-Route::group(['prefix'=>'ajax', 'as'=>'ajax::'], function() {
-   Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
-   Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
+Route::group(['prefix' => 'ajax', 'as' => 'ajax::'], function () {
+    Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
+    Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
 });
 

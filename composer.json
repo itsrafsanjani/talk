@@ -10,7 +10,9 @@
         "laravel/framework": "6.*",
         "laravel/tinker": "^1.0",
         "yohang88/letter-avatar": "^1.0",
-        "nahid/talk": "dev-master"
+        "nahid/talk": "dev-master",
+        "predis/predis": "^1.1",
+        "ext-json": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

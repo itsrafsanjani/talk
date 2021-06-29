@@ -22,18 +22,12 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::where('id', '!=', auth()->id())->latest()->paginate(User::PAGINATE_COUNT);
+
         return view('home', compact('users'));
-    }
-
-    public function tests()
-    {
-
-        $b = new Broadcast(\Illuminate\Contracts\Config\Repository::class, \Vinkla\Pusher\PusherFactory::class);
-        dd($b->tests());
     }
 }

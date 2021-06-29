@@ -2,13 +2,15 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use YoHang88\LetterAvatar\LetterAvatar;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+    const PAGINATE_COUNT = 20;
 
     /**
      * The attributes that are mass assignable.
@@ -32,6 +34,5 @@ class User extends Authenticatable
     public function getAvatarAttribute()
     {
         return new LetterAvatar($this->name);
-
     }
 }

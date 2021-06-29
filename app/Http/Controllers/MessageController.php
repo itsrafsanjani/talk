@@ -5,18 +5,18 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Nahid\Talk\Facades\Talk;
-use Auth;
 use View;
 
 class MessageController extends Controller
 {
     protected $authUser;
+
     public function __construct()
     {
         $this->middleware('auth');
-        Talk::setAuthUserId(Auth::user()->id);
+        Talk::setAuthUserId(auth()->id());
 
-        View::composer('partials.peoplelist', function($view) {
+        View::composer('partials.peoplelist', function ($view) {
             $threads = Talk::threads();
             $view->with(compact('threads'));
         });
@@ -25,10 +25,9 @@ class MessageController extends Controller
     public function chatHistory($id)
     {
         $conversations = Talk::getMessagesByUserId($id, 0, 50);
-        $user = '';
         $messages = [];
-        if(!$conversations) {
-            $user = User::find($id);
+        if (!$conversations) {
+            $user = User::findOrFail($id);
         } else {
             $user = $conversations->withUser;
             $messages = $conversations->messages;
@@ -45,8 +44,8 @@ class MessageController extends Controller
     {
         if ($request->ajax()) {
             $rules = [
-                'message-data'=>'required',
-                '_id'=>'required'
+                'message-data' => 'required',
+                '_id' => 'required'
             ];
 
             $this->validate($request, $rules);
@@ -56,7 +55,7 @@ class MessageController extends Controller
 
             if ($message = Talk::sendMessageByUserId($userId, $body)) {
                 $html = view('ajax.newMessageHtml', compact('message'))->render();
-                return response()->json(['status'=>'success', 'html'=>$html], 200);
+                return response()->json(['status' => 'success', 'html' => $html], 200);
             }
         }
     }
@@ -64,16 +63,11 @@ class MessageController extends Controller
     public function ajaxDeleteMessage(Request $request, $id)
     {
         if ($request->ajax()) {
-            if(Talk::deleteMessage($id)) {
-                return response()->json(['status'=>'success'], 200);
+            if (Talk::deleteMessage($id)) {
+                return response()->json(['status' => 'success'], 200);
             }
 
-            return response()->json(['status'=>'errors', 'msg'=>'something went wrong'], 401);
+            return response()->json(['status' => 'errors', 'msg' => 'something went wrong'], 401);
         }
-    }
-
-    public function tests()
-    {
-        dd(Talk::channel());
     }
 }

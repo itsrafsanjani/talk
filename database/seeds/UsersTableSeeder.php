@@ -15,51 +15,51 @@ class UsersTableSeeder extends Seeder
         \Illuminate\Support\Facades\DB::table('users')->truncate();
         $users = [
             [
-                "name"          => "Nahid Bin Azhar",
-                "email"         => "talk@example.com",
-                "password"      => bcrypt('123456'),
+                "name"          => "User 1",
+                "email"         => "user1@example.com",
+                "password"      => bcrypt('password'),
                 "created_at"    => Carbon::now()->format('Y-m-d H:i:s'),
                 "updated_at"    => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                "name"          => "Robert Carlos",
-                "email"         => "carlos@example.com",
-                "password"      => bcrypt('123456'),
+                "name"          => "User 2",
+                "email"         => "user2@example.com",
+                "password"      => bcrypt('password'),
                 "created_at"    => Carbon::now()->format('Y-m-d H:i:s'),
                 "updated_at"    => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                "name"          => "Firoz Serniabat",
-                "email"         => "firoz@example.com",
-                "password"      => bcrypt('123456'),
+                "name"          => "User 3",
+                "email"         => "user3@example.com",
+                "password"      => bcrypt('password'),
                 "created_at"    => Carbon::now()->format('Y-m-d H:i:s'),
                 "updated_at"    => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                "name"          => "Rony Al Manum",
-                "email"         => "rony@example.com",
-                "password"      => bcrypt('123456'),
+                "name"          => "User 4",
+                "email"         => "user4@example.com",
+                "password"      => bcrypt('password'),
                 "created_at"    => Carbon::now()->format('Y-m-d H:i:s'),
                 "updated_at"    => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                "name"          => "Suman Sutradhar",
-                "email"         => "suman@example.com",
-                "password"      => bcrypt('123456'),
+                "name"          => "User 5",
+                "email"         => "user5@example.com",
+                "password"      => bcrypt('password'),
                 "created_at"    => Carbon::now()->format('Y-m-d H:i:s'),
                 "updated_at"    => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                "name"          => "Arifur Rahman",
-                "email"         => "arif@example.com",
-                "password"      => bcrypt('123456'),
+                "name"          => "User 6",
+                "email"         => "user6@example.com",
+                "password"      => bcrypt('password'),
                 "created_at"    => Carbon::now()->format('Y-m-d H:i:s'),
                 "updated_at"    => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                "name"          => "Obi Plabon",
-                "email"         => "obi@example.com",
-                "password"      => bcrypt('123456'),
+                "name"          => "User 7",
+                "email"         => "user7@example.com",
+                "password"      => bcrypt('password'),
                 "created_at"    => Carbon::now()->format('Y-m-d H:i:s'),
                 "updated_at"    => Carbon::now()->format('Y-m-d H:i:s')
             ],

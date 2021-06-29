@@ -73,10 +73,10 @@ php artisan queue:work
 Now open you project in browser and goto [http://localhost:8000](http://localhost:8000). Then login with the given user
 credentials
 
-> email: `talk@example.com` \
+> email: `user1@example.com` \
 > password: `password`
 
-> email: `chat@example.com` \
+> email: `user2@example.com` \
 > password: `password`
 
 So, Lets start you journey :)

@@ -2,13 +2,10 @@
 /public/storage
 /storage/*.key
 /vendor
-/.idea
 Homestead.json
 Homestead.yaml
 .env
-/nahid
-.DS_Store
 docker-compose.yml
 docker/.DS_Store
-pkgs
-.DS_Store
+/.idea
+/.DS_Store
